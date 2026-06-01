@@ -94,21 +94,23 @@
     }">
     <div class="flex pt-4 pb-4 pl-2 items-start gap-2 motion-safe:transition-all motion-safe:duration-200 motion-safe:ease-out motion-reduce:transition-none"
         :class="collapsed ? 'lg:flex-col lg:items-center lg:pl-0 lg:gap-3 lg:pt-7' : 'lg:pt-6'">
+        {{-- Expanded: logo + name + version --}}
         <div class="flex flex-col w-full" :class="collapsed && 'lg:hidden'">
-            <a href="/" {{ wireNavigate() }} class="text-2xl font-bold tracking-tight dark:text-white hover:opacity-80 transition-opacity">Coolify</a>
+            <a href="/" {{ wireNavigate() }} class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <img src="/black-warrior-logo-color.svg" alt="Black" class="w-8 h-8 flex-shrink-0" />
+                <span class="text-xl font-bold tracking-tight dark:text-white">Black</span>
+            </a>
             <x-version />
         </div>
-        <div class="hidden flex-col items-center w-full gap-1"
-            :class="collapsed && 'lg:flex'">
-            <a href="/" {{ wireNavigate() }}
-                class="hover:opacity-80 transition-opacity"
-                title="Coolify">
-                <img src="/coolify-logo.svg" alt="Coolify" class="w-6 h-6" />
+        {{-- Collapsed: icon + version --}}
+        <div class="hidden flex-col items-center w-full gap-1" :class="collapsed && 'lg:flex'">
+            <a href="/" {{ wireNavigate() }} class="hover:opacity-80 transition-opacity" title="Black">
+                <img src="/black-warrior-logo-color.svg" alt="Black" class="w-10 h-10" />
             </a>
             <x-version class="text-[10px]" />
         </div>
+        {{-- Search button (original position) --}}
         <div :class="collapsed && 'lg:hidden'">
-            <!-- Search button that triggers global search modal -->
             <button @click="$dispatch('open-global-search')" type="button" title="Search (Press / or ⌘K)"
                 class="flex items-center gap-1.5 px-2.5 py-1.5 bg-neutral-100 dark:bg-coolgray-100 border border-neutral-300 dark:border-coolgray-200 rounded-md hover:bg-neutral-200 dark:hover:bg-coolgray-200 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-neutral-500 dark:text-neutral-400"
@@ -120,6 +122,7 @@
                     class="px-1 py-0.5 text-xs font-semibold text-neutral-500 dark:text-neutral-400 bg-neutral-200 dark:bg-coolgray-200 rounded">/</kbd>
             </button>
         </div>
+        {{-- Settings dropdown (original position) --}}
         <div :class="collapsed && 'lg:hidden'">
             <livewire:settings-dropdown />
         </div>
@@ -384,39 +387,12 @@
                             Onboarding
                         </a>
                     </li> --}}
-                    <li>
-                        <a title="Sponsor us" class="menu-item" href="https://coolify.io/sponsorships"
-                            target="_blank">
-                            <svg class="text-pink-500 menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <g fill="none" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2">
-                                    <path d="M19.5 12.572L12 20l-7.5-7.428A5 5 0 1 1 12 6.006a5 5 0 1 1 7.5 6.572" />
-                                    <path
-                                        d="M12 6L8.707 9.293a1 1 0 0 0 0 1.414l.543.543c.69.69 1.81.69 2.5 0l1-1a3.182 3.182 0 0 1 4.5 0l2.25 2.25m-7 3l2 2M15 13l2 2" />
-                                </g>
-                            </svg>
-                            <span class="menu-item-label" :class="collapsed && 'lg:hidden'">Sponsor us</span>
-                        </a>
-                    </li>
+
                 @endif
                 @if (!isSubscribed() && isCloud() && auth()->user()->teams()->get()->count() > 1)
                     <livewire:navbar-delete-team />
                 @endif
-                <li>
-                    <x-modal-input title="How can we help?">
-                        <x-slot:content>
-                            <div title="Send us feedback or get help!" class="cursor-pointer menu-item"
-                                wire:click="help">
-                                <svg class="menu-item-icon" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill="currentColor"
-                                        d="M140 180a12 12 0 1 1-12-12a12 12 0 0 1 12 12M128 72c-22.06 0-40 16.15-40 36v4a8 8 0 0 0 16 0v-4c0-11 10.77-20 24-20s24 9 24 20s-10.77 20-24 20a8 8 0 0 0-8 8v8a8 8 0 0 0 16 0v-.72c18.24-3.35 32-17.9 32-35.28c0-19.85-17.94-36-40-36m104 56A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104m-16 0a88 88 0 1 0-88 88a88.1 88.1 0 0 0 88-88" />
-                                </svg>
-                                <span class="menu-item-label" :class="collapsed && 'lg:hidden'">Feedback</span>
-                            </div>
-                        </x-slot:content>
-                        <livewire:help />
-                    </x-modal-input>
-                </li>
+
                 <li>
                     <form action="/logout" method="POST">
                         @csrf

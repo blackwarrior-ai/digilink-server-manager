@@ -40,7 +40,7 @@
     }
 
     &:focus-visible {
-        box-shadow: inset 4px 0 0 #6b16ed, inset 0 0 0 1px #e5e5e5;
+        box-shadow: inset 4px 0 0 #F46653, inset 0 0 0 1px #e5e5e5;
     }
 
     &:where(.dark, .dark *):focus-visible {
@@ -82,7 +82,7 @@
     @apply focus-visible:outline-none;
 
     &:focus-visible {
-        box-shadow: inset 4px 0 0 #6b16ed, inset 0 0 0 2px #e5e5e5;
+        box-shadow: inset 4px 0 0 #F46653, inset 0 0 0 2px #e5e5e5;
     }
 
     &:where(.dark, .dark *):focus-visible {
@@ -113,7 +113,7 @@
     }
 
     &:focus-visible {
-        box-shadow: inset 4px 0 0 #6b16ed, inset 0 0 0 2px #e5e5e5;
+        box-shadow: inset 4px 0 0 #F46653, inset 0 0 0 2px #e5e5e5;
     }
 
     &:where(.dark, .dark *):focus-visible {

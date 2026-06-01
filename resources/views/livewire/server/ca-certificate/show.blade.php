@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ data_get_str($server, 'name')->limit(10) }} > CA Certificate | Coolify
+        {{ data_get_str($server, 'name')->limit(10) }} > CA Certificate | Black
     </x-slot>
     <livewire:server.navbar :server="$server" />
     <div class="flex flex-col h-full gap-8 sm:flex-row">
@@ -37,10 +37,10 @@
                 <div class="text-sm">
                     <p class="font-medium mb-2">Recommended Configuration:</p>
                     <ul class="list-disc pl-5 space-y-1">
-                        <li>Mount this CA certificate of Coolify into all containers that need to connect to one of
+                        <li>Mount this CA certificate of Black into all containers that need to connect to one of
                             your databases over SSL. You can see and copy the bind mount below.</li>
                         <li>Read more when and why this is needed <a class="underline dark:text-white"
-                                href="https://coolify.io/docs/databases/ssl" target="_blank">here</a>.</li>
+                                href="https://black/docs/databases/ssl" target="_blank">here</a>.</li>
                     </ul>
                 </div>
                 <div class="relative">
