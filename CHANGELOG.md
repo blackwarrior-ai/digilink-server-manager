@@ -1400,6 +1400,33 @@ All notable changes to this project will be documented in this file.
 - *(template)* Add cloudflare-ddns template (#8099)
 - Black branding - replace Coolify with Black, update logo/colors/favicon, remove sponsor/feedback sections
 - Add workflow_dispatch to production build
+- *(destination)* Show resources that are deployed on the destination
+- *(application)* Make ports_exposes optional for portless apps
+- *(ui)* Show info callout only when domain is set without exposed ports
+- *(profile)* Add appearance preferences page
+- *(database)* Configure standalone health checks
+- *(database)* Configure standalone health checks (#10481)
+- *(terminal)* Add mobile shell controls
+- *(terminal)* Add mobile shell controls (#10498)
+- *(service)* Add Healthchecks as a service (#10335)
+- *(ui)* Improve configuration changes modal
+- *(ui)* Add resource details view
+- *(ui)* Add resource details view (#9756)
+- Support dns custom docker option
+- Support --dns custom Docker option (#10516)
+- *(application)* Make ports_exposes optional for portless apps (#9182)
+- *(ui)* Move Sentinel to dedicated tab with sidebar navigation and logs page
+- *(ui)* Show warning callout on sentinel page if sentinel is out of sync
+- *(applications)* Add configurable restart loop limit
+- *(application)* Preserve crash restart limit status
+- *(applications)* Add configurable restart loop limit (#9231)
+- *(ui)* Move sentinel to new tab (#9544)
+- *(destinations)* Split Docker resources into separate page
+- *(destination)* Show resources that are deployed on the destination (#9757)
+- Add search functionality for environment variables
+- *(ui)* Add search functionality for environment variables (#10421)
+- *(postgres)* Add internal database upgrade script
+- *(services)* Show template update timestamps
 
 ### 🐛 Bug Fixes
 
@@ -5127,6 +5154,113 @@ All notable changes to this project will be documented in this file.
 - *(github)* Support custom webhook override
 - *(github)* Require opt-in custom webhook endpoint
 - Resolve merge conflict in config/constants.php
+- *(logs)* Handle missing clipboard API in non-HTTPS contexts
+- *(logs)* Add missing final newline to show.blade.php
+- *(git)* Ensure ssh credentials are propagated to submodule operations
+- *(backups)* Validate S3 storage before backup scheduling
+- *(backups)* Revalidate S3 storage on scheduled backup submit
+- *(livewire)* Stop broadcast handlers from wiping in-progress form input
+- *(livewire)* Preserve wire:dirty across DB status broadcasts
+- *(livewire)* Scope DatabaseProxyStopped to proxy fields, harden status trait
+- *(database)* Guard proxy listeners without a team
+- *(crons)* Dispatch due schedules across chunks
+- *(sentinel)* Reduce resource churn from health flaps
+- *(s3)* Cap connection checks at 15 seconds
+- *(database)* Use named backup upload route
+- *(database)* Gate import form controls by update access
+- *(application)* Only show server warning for false status
+- *(database)* Always include MongoDB archive path in restores
+- *(webhooks)* Point auth-required docs to authorization
+- *(database)* Quote S3 restore temp paths
+- *(livewire)* Stop broadcast handlers from wiping in-progress form (#10321)
+- *(settings)* Update What's New menu icon
+- *(service)* Set correct image tag for hermes-agent-with-webui
+- *(service)* Set correct image tag for hermes-agent-with-webui (#10445)
+- *(service)* Chatwoot Support allowlisted private API inbox webhooks (#10426)
+- *(team)* Prevent 500 after deleting the current team
+- *(team)* Prevent 500 when deleting the current team (#10353)
+- *(webhook)* Skip preview deployments for fork PRs when public previews are off
+- *(webhook)* Skip preview deployments for fork PRs (#10457)
+- *(service)* Defer stop when pulling latest images
+- *(webhook)* Match GitLab SSH repos with custom ports
+- *(webhook)* Match GitLab SSH repos with custom ports (#10479)
+- *(cleanup)* Disable unreachable self-hosted servers
+- *(cleanup)* Preserve self-hosted server IPs (#10480)
+- *(database)* Honor disabled standalone health checks
+- *(terminal)* Keep sessions alive without hard timeouts
+- *(terminal)* Allow debug logging via env override
+- *(terminal)* Enforce eight hour session expiry
+- *(terminal)* Keep long-running sessions connected (#10482)
+- *(backups)* Validate S3 storage before scheduling (#10389)
+- *(deployments)* Filter generated compose service env vars
+- *(deployments)* Filter generated compose service env vars (#10186)
+- *(deployments)* Scope submodule git credentials per command
+- *(terminal)* Exit fullscreen when PTY exits
+- *(deployments)* Skip registry image tag for previews
+- *(deployments)* Skip registry image tag for previews (#10185)
+- *(git)* Ensure ssh credentials are propagated to submodule operations (#8900)
+- *(proxy)* Tighten config validation
+- *(api)* Validate token team context
+- *(tests)* Reuse instance settings in API token team tests
+- *(api)* Validate token team context (#10505)
+- Validate application branch updates
+- *(applications)* Harden image validation
+- *(applications)* Allow repeated hyphens in image names
+- *(db)* Skip postgres tuning outside pgsql
+- *(ui)* Prevent persisted sidebar restore animation
+- *(templates)* Generate valid Garage RPC secret
+- *(service)* Garage doesn't start due to RPC secret being wrong length (#10425)
+- *(auth)* Bind magic links to their invitation
+- *(deploy)* Persist Railpack buildx metadata
+- *(server)* Prune Railpack buildx cache via helper container
+- *(log-drain)* Connect drain to service networks
+- *(server)* Preserve remote HOME in Railpack buildx prune
+- *(deploy)* Persist Railpack Buildx metadata (#10511)
+- *(forms)* Focus password fields before visibility toggles
+- *(forms)* Focus password fields before visibility toggles (#10519)
+- *(navigation)* Strip stale x-cloak after Livewire navigation
+- *(navigation)* Remove stale cloak after Livewire navigation (#10518)
+- *(github)* Use provided app for installation URLs
+- *(service)* Owncloud login doesn't work (#10508)
+- *(ui)* Configuration changes modal doesn't go away after redeployment for git based compose apps (#10461)
+- *(dev)* Testing host downloads wrong arch docker binaries on linux
+- *(dev)* Testing host downloads wrong arch docker binaries on linux (#10462)
+- *(logs)* Convert timestamps to server timezone in deployment and container logs
+- *(logs)* Use server timezone in deployment and container logs (#10165)
+- *(routes)* Fix application metrics link and rename server.charts to server.metrics
+- *(ui)* Server metrics charts were not loading after enabling metrics
+- *(sentinel)* Refresh server nav after toggles
+- Models and slide-overs to use the same Close (x) icon button styles
+- *(modal)* Add missing scrolling behavior for better user experience on smaller screens for modals with much content
+- *(modal)* Add some padding to the top of the modal content to prevent cuttoffs of the content area and restore close-outside click behaviour
+- *(modal)* Add missing scrolling behavior for better user experience… (#9647)
+- *(server)* Allow dots in ssh username
+- *(onboarding)* Validate ssh username
+- *(server)* Share SSH username validation
+- *(server)* Return SSH username validation messages
+- *(server)* Allow dots in ssh username (#9951)
+- *(ui)* Improve slide-over close focus styles
+- *(ui)* Models and slide-overs to use the same Close (x) icon button styles (#9393)
+- *(logs)* Handle missing clipboard API in non-HTTPS contexts (#8942)
+- *(git)* Force HTTP/1.1 for repository imports
+- *(scheduled-jobs)* Link skipped service database backups
+- *(scheduled-jobs)* Link skipped service database backups (#10527)
+- *(git)* Apply HTTP transport config to PR checkouts
+- *(git)* Force HTTP/1.1 for repository imports (#10528)
+- Html tags removed in log viewer
+- *(logs)* Html tags is removed in log viewer (#10346)
+- *(env)* Keep dev view env saves independent of search
+- *(env-vars)* Show single empty state for searches
+- *(env-vars)* Treat search wildcards literally
+- *(api)* Apply private_key_uuid in update_server
+- *(api)* Prevent partial server updates on invalid disk schedule
+- *(api)* Allow disabling build server mode
+- *(api)* Apply private_key_uuid in update_server (#10416)
+- *(postgres)* Preserve Coolify image tag during upgrade
+- *(git)* Write deploy key to per-deployment path, not root's id_rsa
+- *(git)* Use deploy key path for PR fetches
+- *(git)* Write deploy key to per-deployment path, not root's id_rsa (#10440)
+- *(upgrade)* Preserve compose override expansion
 
 ### 💼 Other
 
@@ -5619,6 +5753,8 @@ All notable changes to this project will be documented in this file.
 - *(deps)* Bump phpseclib/phpseclib from 3.0.51 to 3.0.52
 - *(deps)* Bump phpseclib/phpseclib from 3.0.51 to 3.0.52 (#9952)
 - Bump cloudflare-ddns to v2.1.2
+- Support allowlisted private API inbox webhooks
+- *(Update)* Update Gitea runner image to version 1.0.7
 
 ### 🚜 Refactor
 
@@ -6310,6 +6446,9 @@ All notable changes to this project will be documented in this file.
 - *(deployment)* Move copyLogs to client-side and hide refund when ineligible
 - *(scheduled-task)* Simplify server() with nullsafe operators and add return type
 - *(helpers)* Extract STANDALONE_DATABASE_MODELS registry, add tests
+- *(database)* Split import form into Livewire child
+- *(ui)* Use callout components for application metrics alerts
+- *(migration)* Align migration name with actual schema change
 
 ### 📚 Documentation
 
@@ -6484,6 +6623,7 @@ All notable changes to this project will be documented in this file.
 - *(readme)* Fix PrivateAlps sponsor wording
 - *(readme)* Remove Context.dev sponsor
 - *(readme)* Add Seibert Group sponsor
+- Update changelog
 
 ### ⚡ Performance
 
@@ -6495,6 +6635,7 @@ All notable changes to this project will be documented in this file.
 - *(server)* Optimize destinationsByServer query
 - *(server)* Optimize destinationsByServer query (#7854)
 - *(breadcrumb)* Optimize queries and simplify navigation to fix OOM (#9048)
+- *(realtime)* Reduce push update churn
 
 ### 🎨 Styling
 
@@ -6544,6 +6685,7 @@ All notable changes to this project will be documented in this file.
 - Remove GHSA advisory IDs from test descriptions and comments
 - *(api)* Add feature tests for server connection_timeout API
 - *(railpack)* Add API, Livewire UI tests and e2e smoke script
+- *(api)* Cover server private key updates
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -7387,6 +7529,17 @@ All notable changes to this project will be documented in this file.
 - Inspect commit message guidance
 - Setup custom GHCR deployment pipeline
 - Trigger github action build
+- *(sentinel)* Remove stale resource exit check
+- *(database)* Rename health checks route to healthcheck
+- *(realtime)* Bump image to 1.0.16
+- Improve deployment input handling
+- Defer server policy changes
+- *(service)* Update Gitea runner image to version 1.0.7 (#10500)
+- Update team invitation handling
+- Inspect staged changes
+- Inspect staged modal changes
+- *(logs)* Simplify log viewer XSS tests
+- Merge upstream and resolve conflicts keeping custom branding
 
 ### ◀️ Revert
 
