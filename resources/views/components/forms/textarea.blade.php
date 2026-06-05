@@ -31,6 +31,21 @@
     @else
         @if ($type === 'password')
             <div class="relative" x-data="{ type: 'password' }" @success.window="type = 'password'">
+                <input x-cloak x-show="type === 'password'" value="{{ $value }}"
+                    {{ $attributes->merge(['class' => $defaultClassInput]) }} @required($required)
+                    @if ($modelBinding !== 'null') wire:model={{ $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#FF4D00,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
+                    wire:loading.attr="disabled"
+                    type="{{ $type }}" @readonly($readonly) @disabled($disabled) id="{{ $htmlId }}"
+                    name="{{ $name }}" placeholder="{{ $attributes->get('placeholder') }}"
+                    aria-placeholder="{{ $attributes->get('placeholder') }}">
+                <textarea minlength="{{ $minlength }}" maxlength="{{ $maxlength }}" x-cloak x-show="type !== 'password'"
+                    placeholder="{{ $placeholder }}" {{ $attributes->merge(['class' => $defaultClass]) }}
+                    @if ($realtimeValidation) wire:model.debounce.200ms="{{ $modelBinding }}" wire:dirty.class="[box-shadow:inset_4px_0_0_#FF4D00,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
+                @else
+            wire:model={{ $value ?? $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#FF4D00,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
+                    @disabled($disabled) @readonly($readonly) @required($required) id="{{ $htmlId }}"
+                    name="{{ $name }}" name={{ $modelBinding }}
+                    @if ($autofocus) x-ref="autofocusInput" @endif></textarea>
                 @if ($allowToPeak)
                     <button type="button" x-on:click="type = type === 'password' ? 'text' : 'password'"
                         class="absolute inset-y-0 right-0 flex items-center h-6 pt-2 pr-2 cursor-pointer dark:hover:text-white"
@@ -51,30 +66,15 @@
                         </svg>
                     </button>
                 @endif
-                <input x-cloak x-show="type === 'password'" value="{{ $value }}"
-                    {{ $attributes->merge(['class' => $defaultClassInput]) }} @required($required)
-                    @if ($modelBinding !== 'null') wire:model={{ $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#F46653,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
-                    wire:loading.attr="disabled"
-                    type="{{ $type }}" @readonly($readonly) @disabled($disabled) id="{{ $htmlId }}"
-                    name="{{ $name }}" placeholder="{{ $attributes->get('placeholder') }}"
-                    aria-placeholder="{{ $attributes->get('placeholder') }}">
-                <textarea minlength="{{ $minlength }}" maxlength="{{ $maxlength }}" x-cloak x-show="type !== 'password'"
-                    placeholder="{{ $placeholder }}" {{ $attributes->merge(['class' => $defaultClass]) }}
-                    @if ($realtimeValidation) wire:model.debounce.200ms="{{ $modelBinding }}" wire:dirty.class="[box-shadow:inset_4px_0_0_#F46653,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
-                @else
-            wire:model={{ $value ?? $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#F46653,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
-                    @disabled($disabled) @readonly($readonly) @required($required) id="{{ $htmlId }}"
-                    name="{{ $name }}" name={{ $modelBinding }}
-                    @if ($autofocus) x-ref="autofocusInput" @endif></textarea>
 
             </div>
         @else
             <textarea minlength="{{ $minlength }}" maxlength="{{ $maxlength }}"
                 {{ $allowTab ? '@keydown.tab=handleKeydown' : '' }} placeholder="{{ $placeholder }}"
                 {{ !$spellcheck ? 'spellcheck=false' : '' }} {{ $attributes->merge(['class' => $defaultClass]) }}
-                @if ($realtimeValidation) wire:model.debounce.200ms="{{ $modelBinding }}" wire:dirty.class="[box-shadow:inset_4px_0_0_#F46653,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
+                @if ($realtimeValidation) wire:model.debounce.200ms="{{ $modelBinding }}" wire:dirty.class="[box-shadow:inset_4px_0_0_#FF4D00,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
         @else
-    wire:model={{ $value ?? $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#F46653,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
+    wire:model={{ $value ?? $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#FF4D00,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
                 @disabled($disabled) @readonly($readonly) @required($required) id="{{ $htmlId }}"
                 name="{{ $name }}" name={{ $modelBinding }}
                 @if ($autofocus) x-ref="autofocusInput" @endif></textarea>
