@@ -104,7 +104,7 @@
     <div class="flex pt-4 pb-4 pl-2 pr-3 items-start gap-3"
         :class="collapsed ? 'lg:flex-col lg:items-center lg:pl-0 lg:pr-0 lg:gap-3 lg:pt-7' : 'lg:pt-6'">
         <div class="flex min-w-0 flex-1 flex-col" :class="collapsed && 'lg:hidden'">
-            <a href="/" {{ wireNavigate() }} class="flex items-center gap-2 hover:opacity-80 transition-opacity text-2xl font-bold tracking-tight dark:text-white">
+            <a href="/" {{ wireNavigate() }} class="flex items-center gap-2 hover:opacity-80 transition-opacity text-base font-bold tracking-tight dark:text-white">
                 <img src="/black-warrior-logo-color.svg" alt="Black" class="w-8 h-8 flex-shrink-0" />
                 <span>Black</span>
             </a>
