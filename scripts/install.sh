@@ -781,7 +781,7 @@ curl -fsSL -L $CDN/.env.production -o /data/coolify/source/.env.production &
 PID3=$!
 curl -fsSL -L $CDN/scripts/upgrade.sh -o /data/coolify/source/upgrade.sh &
 PID4=$!
-curl -fsSL -L $CDN/upgrade-postgres.sh -o /data/coolify/source/upgrade-postgres.sh &
+curl -fsSL -L $CDN/scripts/upgrade-postgres.sh -o /data/coolify/source/upgrade-postgres.sh &
 PID5=$!
 
 # Wait for all downloads to complete and check for errors
