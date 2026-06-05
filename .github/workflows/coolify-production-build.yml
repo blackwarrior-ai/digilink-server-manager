@@ -1,6 +1,7 @@
 name: Production Build (v4)
 
 on:
+  workflow_dispatch:
   push:
     branches: ["v4.x"]
     paths-ignore:
