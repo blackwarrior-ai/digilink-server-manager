@@ -5262,6 +5262,7 @@ All notable changes to this project will be documented in this file.
 - *(git)* Write deploy key to per-deployment path, not root's id_rsa (#10440)
 - *(upgrade)* Preserve compose override expansion
 - Remove docker hub push for realtime and helper workflows
+- Correct CDN paths for upgrade-postgres and helper image paths
 
 ### 💼 Other
 
@@ -6624,6 +6625,7 @@ All notable changes to this project will be documented in this file.
 - *(readme)* Fix PrivateAlps sponsor wording
 - *(readme)* Remove Context.dev sponsor
 - *(readme)* Add Seibert Group sponsor
+- Update changelog
 - Update changelog
 - Update changelog
 - Update changelog
