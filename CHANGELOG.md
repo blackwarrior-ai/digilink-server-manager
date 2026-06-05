@@ -6624,6 +6624,7 @@ All notable changes to this project will be documented in this file.
 - *(readme)* Remove Context.dev sponsor
 - *(readme)* Add Seibert Group sponsor
 - Update changelog
+- Update changelog
 
 ### ⚡ Performance
 
@@ -6657,6 +6658,7 @@ All notable changes to this project will be documented in this file.
 - *(teams)* Update switch team button styling
 - *(navbar)* Refine collapsed sidebar spacing
 - *(destination)* Capitalize server label
+- Reduce text size for Black logo in navbar
 
 ### 🧪 Testing
 
